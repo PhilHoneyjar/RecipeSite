@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Recipe Website{% endblock %}</title>
+    <title>{% block title %}ВкусноЕсть{% endblock %}</title>
 </head>
 <body>
     <header>
-        <h1>Recipe Website</h1>
+        <div class="menu-header">
+            <button class="menu-button">
+                <a href="{% url 'home' %}">
+                    <span class="vkusno">Вкусно</span><span class="est">Есть</span>
+                </a>
+            </button>
+        </div>
         <nav>
-            <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                {% if user.is_authenticated %}
-                    <li><a href="{% url 'add_recipe' %}">Add Recipe</a></li>
-                    <li><a href="{% url 'logout' %}">Logout</a></li>
-                {% else %}
-                    <li><a href="{% url 'login' %}">Login</a></li>
-                    <li><a href="{% url 'register' %}">Register</a></li>
-                {% endif %}
-            </ul>
+            {% if user.is_authenticated %}
+            <button><a href="{% url 'add_recipe' %}">Добавить рецепт</a></button>
+            <button><a href="{% url 'logout' %}">Выйти</a></button>
+            {% else %}
+            <button><a href="{% url 'login' %}">Вход</a></button>
+            <button><a href="{% url 'register' %}">Регистрация</a></button>
+            {% endif %}
         </nav>
     </header>
     <main>
@@ -25,7 +30,7 @@
         {% endblock %}
     </main>
     <footer>
-        <p>&copy; 2024 Recipe Website</p>
+        <p>&copy; 2024 ВкусноЕсть</p>
     </footer>
 </body>
 </html>

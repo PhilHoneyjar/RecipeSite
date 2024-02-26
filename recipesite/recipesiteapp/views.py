@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from .models import Recipe
-from .forms import RecipeForm
+from .forms import RecipeCategoryForm, RecipeForm
 
 
 def home(request):
@@ -14,6 +14,17 @@ def home(request):
 def recipe_detail(request, recipe_id):
     recipe = get_object_or_404(Recipe, pk=recipe_id)
     return render(request, 'recipe_detail.html', {'recipe': recipe})
+
+
+def add_recipe_category(request):
+    if request.method == 'POST':
+        form = RecipeCategoryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = RecipeCategoryForm()
+    return render(request, 'add_recipe_category.html', {'form': form})
 
 
 @login_required
@@ -28,7 +39,7 @@ def add_recipe(request):
             return redirect('home')
     else:
         form = RecipeForm()
-    return render(request, 'recipe_form.html', {'form': form, 'form_title': 'Add Recipe'})
+    return render(request, 'recipe_form.html', {'form': form, 'form_title': 'Добавить рецепт'})
 
 
 @login_required
@@ -41,7 +52,7 @@ def edit_recipe(request, recipe_id):
             return redirect('home')
     else:
         form = RecipeForm(instance=recipe)
-    return render(request, 'recipe_form.html', {'form': form, 'form_title': 'Edit Recipe'})
+    return render(request, 'recipe_form.html', {'form': form, 'form_title': 'Редактировать рецепт'})
 
 
 def register(request):

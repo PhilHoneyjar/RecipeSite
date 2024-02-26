@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Featured Recipes</h2>
-    <ul>
-        {% for recipe in recipes %}
-            <li>
-                <a href="{% url 'recipe_detail' recipe.id %}">{{ recipe.title }}</a>
-                <p>{{ recipe.description }}</p>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="five-recipes">
+        <h2>5 случайных рецептов</h2>
+        <ul>
+            {% for recipe in recipes %}
+                <li>
+                    <a href="{% url 'recipe_detail' recipe.id %}">{{ recipe.title }}</a>
+                    <p><img src="{{ recipe.image.url }}" alt="{{ recipe.title }}"></p>
+                    <p>{{ recipe.description }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
