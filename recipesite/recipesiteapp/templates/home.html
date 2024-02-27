@@ -6,8 +6,12 @@
         <ul>
             {% for recipe in recipes %}
                 <li>
-                    <a href="{% url 'recipe_detail' recipe.id %}">{{ recipe.title }}</a>
-                    <p><img src="{{ recipe.image.url }}" alt="{{ recipe.title }}"></p>
+                    <button>
+                        <a href="{% url 'recipe_detail' recipe.id %}">{{ recipe.title }}</a>
+                    </button>
+                    <a href="{% url 'recipe_detail' recipe.id %}">
+                        <p><img src="{{ recipe.image.url }}" alt="{{ recipe.title }}"></p>
+                    </a>
                     <p>{{ recipe.description }}</p>
                 </li>
             {% endfor %}

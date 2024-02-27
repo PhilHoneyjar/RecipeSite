@@ -1,6 +1,6 @@
 header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
@@ -8,7 +8,7 @@ header {
 .menu-header {
     position: absolute;
     top: 30px;
-    left: 50px;
+    left: 70px;
     flex-shrink: 0;
     text-decoration: none;
 }
@@ -25,6 +25,14 @@ header {
     font-weight: bold;
     line-height: normal;
     display: flex;
+}
+
+.menu-button a {
+    text-decoration: none;
+}
+
+.menu-header button:active {
+    transform: translateY(1px);
     text-decoration: none;
 }
 
@@ -35,33 +43,30 @@ header {
     font-style: normal;
     font-weight: bold;
     line-height: normal;
-    text-decoration: none;
 }
 
 .est {
-    color: #F25822;
+    color: darkseagreen;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 32px;
     font-style: normal;
     font-weight: bold;
     line-height: normal;
-    text-decoration: none;
 }
 
 nav {
     position: absolute;
     flex-shrink: 0;
     top: 45px;
-    right: 50px;
+    right: 70px;
     display: flex;
     align-items: center;
     background-color: #fff;
-    text-decoration: none;
 }
 
 nav button {
     position: relative;
-    font-size: 14px;
+    font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #fff;
     color: #000;
@@ -71,25 +76,15 @@ nav button {
     font-weight: bold;
     line-height: normal;
     display: flex;
-    text-decoration: none;
 }
 
-nav button.selected {
-    color: #f25822;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: bold;
-    line-height: normal;
+nav button a {
     text-decoration: none;
-}
-
-nav button:link {
-    text-decoration: none;
+    color: inherit;
 }
 
 nav button:hover {
-    color: #f25822;
+    color: darkseagreen;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #fff;
     text-decoration: none;
@@ -97,14 +92,16 @@ nav button:hover {
 
 nav button:active {
     transform: translateY(1px);
-    text-decoration: none;
 }
 
 nav button i {
     position: absolute;
     right: -5px;
     bottom: 2px;
-    text-decoration: none;
+}
+
+main {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .login-register {
@@ -182,6 +179,36 @@ nav button i {
     margin-left: 10px;
 }
 
+.five-recipes button {
+    position: relative;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    display: flex;
+}
+
+.five-recipes a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.five-recipes button:hover {
+    color: darkseagreen;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fff;
+    text-decoration: none;
+}
+
+.five-recipes button:active {
+    transform: translateY(1px);
+}
+
 .five-recipes img {
     width: 240px;
     height: auto;
@@ -195,17 +222,62 @@ nav button i {
 
 .recipe-details {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     position: absolute;
-    top: 80px;
-    left: 50px;
+    top: 100px;
+    left: 220px;
+}
+
+.recipe-details-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-details-content {
+    display: flex;
+    flex-direction: row;
 }
 
 .recipe-details-left {
     display: flex;
     flex-direction: column;
-    margin-right: 100px;
-    margin-bottom: 30px;
+}
+
+.recipe-details-right{
+    display: flex;
+    flex-direction: column;
+    margin-left: 90px;
+}
+
+.recipe-details-content button {
+    position: relative;
+    left: -5px;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    color: #cccccc;
+    border: none;
+    cursor: pointer;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    display: flex;
+}
+
+.recipe-details-content a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.recipe-details-content button:hover {
+    color: darkgrey;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fff;
+    text-decoration: none;
+}
+
+.recipe-details-content button:active {
+    transform: translateY(1px);
 }
 
 .recipe-details img {

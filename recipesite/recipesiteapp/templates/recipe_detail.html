@@ -2,22 +2,28 @@
 
 {% block content %}
     <div class="recipe-details">
-        <div class="recipe-details-left">
+        <div class="recipe-details-header">
             <h2>{{ recipe.title }}</h2>
-            {% if user.is_authenticated %}
-                <a href="{% url 'edit_recipe' recipe.id %}">Редактировать</a>
-            {% else %}
-                <p>Авторизуйтесь на сайте для редактирования статьи</p>
-            {% endif %}
-            <p><img src="{{ recipe.image.url }}" alt="{{ recipe.title }}"></p>
-            <p>Описание: {{ recipe.description }}</p>
-            <p>Время приготовления: {{ recipe.prep_time }} минут</p>
         </div>
-        <div class="recipe-details-right">
-            <h3>Рецепт приготовления:</h3>
-            <p>{{ recipe.steps }}</p>
-            <p>Категории: {{ recipe.categories.all|join:", " }}</p>
-            <p>Автор: {{ recipe.author }}</p>
+        <div class="recipe-details-content">
+            <div class="recipe-details-left">
+                {% if user.is_authenticated %}
+                <button>
+                    <a href="{% url 'edit_recipe' recipe.id %}">Редактировать</a>
+                </button>
+                {% else %}
+                    <p>Авторизуйтесь на сайте для редактирования статьи</p>
+                {% endif %}
+                <p><img src="{{ recipe.image.url }}" alt="{{ recipe.title }}"></p>
+                <p>Описание: {{ recipe.description }}</p>
+                <p>Время приготовления: {{ recipe.prep_time }} минут</p>
+            </div>
+            <div class="recipe-details-right">
+                <h3>Рецепт приготовления:</h3>
+                <p>{{ recipe.steps }}</p>
+                <p>Категории: {{ recipe.categories.all|join:", " }}</p>
+                <p>Автор: {{ recipe.author }}</p>
+            </div>
         </div>
     </div>
 {% endblock %}
