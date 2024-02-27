@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Add Recipe Category</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Add Category</button>
-    </form>
+    <div class="add-edit-recipe">
+        <h2>Добавить новую категорию</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Опубликовать</button>
+        </form>
+    </div>
 {% endblock %}

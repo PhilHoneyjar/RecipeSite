@@ -1,12 +1,92 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="add-edit-recipe">
-        <h2>{{ form_title }}</h2>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Опубликовать</button>
-        </form>
-    </div>
+<div class="add-edit-recipe">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="add-edit-recipe-header">
+            <h2>{% if recipe %}Редактировать рецепт{% else %}Добавить рецепт{% endif %}</h2>
+        </div>
+        <div class="add-edit-recipe-content">
+            <div class="add-edit-recipe-left">
+                {% if form.non_field_errors %}
+                    <ul>
+                        {% for error in form.non_field_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <p>
+                    <label for="title">Название:</label><br>
+                    {{ form.title }}
+                    {% if form.title.errors %}
+                        <ul>
+                            {% for error in form.title.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </p>
+                <p>
+                    <label for="image">Изображение:</label><br>
+                    {{ form.image }}
+                    {% if form.image.errors %}
+                        <ul>
+                            {% for error in form.image.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </p>
+                <p>
+                    <label for="description">Описание:</label><br>
+                    {{ form.description }}
+                    {% if form.description.errors %}
+                        <ul>
+                            {% for error in form.description.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </p>
+                <p>
+                    <label for="prep_time">Время приготовления, мин:</label><br>
+                    {{ form.prep_time }}
+                    {% if form.prep_time.errors %}
+                        <ul>
+                            {% for error in form.prep_time.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </p>
+            </div>
+            <div class="add-edit-recipe-right">
+                <p>
+                    <label for="steps">Рецепт приготовления:</label><br>
+                    {{ form.steps }}
+                    {% if form.steps.errors %}
+                        <ul>
+                            {% for error in form.steps.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </p>
+                <p>
+                    <label for="categories">Категории:</label><br>
+                    {{ form.categories }}
+                    {% if form.categories.errors %}
+                        <ul>
+                            {% for error in form.categories.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        <button type="submit">{% if recipe %}Сохранить{% else %}Опубликовать{% endif %}</button>
+    </form>
+</div>
 {% endblock %}

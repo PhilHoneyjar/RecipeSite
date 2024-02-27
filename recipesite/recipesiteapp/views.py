@@ -4,10 +4,11 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from .models import Recipe
 from .forms import RecipeCategoryForm, RecipeForm
+import random
 
 
 def home(request):
-    recipes = Recipe.objects.all()[:5]
+    recipes = Recipe.objects.order_by('?')[:5]
     return render(request, 'home.html', {'recipes': recipes})
 
 
@@ -39,7 +40,7 @@ def add_recipe(request):
             return redirect('home')
     else:
         form = RecipeForm()
-    return render(request, 'recipe_form.html', {'form': form, 'form_title': 'Добавить рецепт'})
+    return render(request, 'recipe_form.html', {'form': form})
 
 
 @login_required
@@ -52,7 +53,7 @@ def edit_recipe(request, recipe_id):
             return redirect('home')
     else:
         form = RecipeForm(instance=recipe)
-    return render(request, 'recipe_form.html', {'form': form, 'form_title': 'Редактировать рецепт'})
+    return render(request, 'recipe_form.html', {'form': form, 'recipe': recipe})
 
 
 def register(request):

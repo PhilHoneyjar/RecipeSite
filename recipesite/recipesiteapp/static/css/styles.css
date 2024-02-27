@@ -225,7 +225,7 @@ main {
     flex-direction: column;
     position: absolute;
     top: 100px;
-    left: 220px;
+    left: 200px;
 }
 
 .recipe-details-header {
@@ -241,12 +241,14 @@ main {
 .recipe-details-left {
     display: flex;
     flex-direction: column;
+    width: 500px;
 }
 
 .recipe-details-right{
     display: flex;
     flex-direction: column;
-    margin-left: 90px;
+    width: 650px;
+    margin-left: 110px;
 }
 
 .recipe-details-content button {
@@ -289,8 +291,29 @@ main {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 80px;
-    left: 50px;
+    top: 100px;
+    left: 200px;
+}
+
+.add-edit-recipe-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-edit-recipe-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.add-edit-recipe-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-edit-recipe-right{
+    display: flex;
+    flex-direction: column;
+    margin-left: 110px;
 }
 
 footer {
