@@ -17,10 +17,12 @@
         </div>
         <nav>
             {% if user.is_authenticated %}
+            <button><a href="{% url 'all_recipes' %}">Все рецепты</a></button>
             <button><a href="{% url 'add_recipe' %}">Добавить рецепт</a></button>
             <button><a href="{% url 'add_recipe_category' %}">Добавить категорию рецепта</a></button>
             <button><a href="{% url 'logout' %}">Выйти</a></button>
             {% else %}
+            <button><a href="{% url 'all_recipes' %}">Все рецепты</a></button>
             <button><a href="{% url 'login' %}">Вход</a></button>
             <button><a href="{% url 'register' %}">Регистрация</a></button>
             {% endif %}

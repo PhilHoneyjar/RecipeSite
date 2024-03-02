@@ -17,6 +17,11 @@ def recipe_detail(request, recipe_id):
     return render(request, 'recipe_detail.html', {'recipe': recipe})
 
 
+def recipe_all(request):
+    recipes = Recipe.objects.all()
+    return render(request, 'all_recipes.html', {'recipes': recipes})
+
+
 def add_recipe_category(request):
     if request.method == 'POST':
         form = RecipeCategoryForm(request.POST)

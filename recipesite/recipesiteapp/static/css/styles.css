@@ -211,7 +211,7 @@ main {
 
 .five-recipes img {
     width: 240px;
-    height: auto;
+    max-height: 180px;
 }
 
 .five-recipes p {
@@ -226,6 +226,24 @@ main {
     position: absolute;
     top: 100px;
     left: 200px;
+}
+
+.all-recipes {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+    left: 200px;
+}
+
+.all-recipes h2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.all-recipes ul {
+    display: flex;
+    flex-direction: column;
 }
 
 .recipe-details-header {
@@ -284,7 +302,7 @@ main {
 
 .recipe-details img {
     width: 500px;
-    height: auto;
+    max-height: 300px;
 }
 
 .add-edit-recipe {
