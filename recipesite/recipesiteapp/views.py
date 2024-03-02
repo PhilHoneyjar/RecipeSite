@@ -14,7 +14,9 @@ def home(request):
 
 def recipe_detail(request, recipe_id):
     recipe = get_object_or_404(Recipe, pk=recipe_id)
-    return render(request, 'recipe_detail.html', {'recipe': recipe})
+    recipe_steps = recipe.steps.split('. ')
+    recipe_steps = [step.strip() for step in recipe_steps if step.strip()]
+    return render(request, 'recipe_detail.html', {'recipe': recipe, 'recipe_steps': recipe_steps})
 
 
 def recipe_all(request):

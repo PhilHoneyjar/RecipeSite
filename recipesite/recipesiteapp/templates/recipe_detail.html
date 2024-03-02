@@ -20,7 +20,11 @@
             </div>
             <div class="recipe-details-right">
                 <h3>Рецепт приготовления:</h3>
-                <p>{{ recipe.steps }}</p>
+                <ol>
+                    {% for step in recipe_steps %}
+                        <li>{{ step }}</li>
+                    {% endfor %}
+                </ol>
                 <p>Категории: {{ recipe.categories.all|join:", " }}</p>
                 <p>Автор: {{ recipe.author }}</p>
             </div>
